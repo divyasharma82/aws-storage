@@ -1,0 +1,109 @@
+Amazon S3 (Simple Storage Service) 🗃️
+Overview: Amazon S3 is an object storage service that offers scalable storage for data objects, files, and backups. It provides durability, high availability, and low latency access to your data.
+
+
+Bucket Naming Rules:
+Bucket names must be globally unique across AWS.
+Names can contain only lowercase letters, numbers, hyphens, and periods.
+Bucket names must be between 3 and 63 characters in length.
+
+S3 Subresources:
+Objects: Data items stored in S3, identified by a unique key.
+Metadata: Custom data associated with objects.
+Access Control Lists (ACLs): Define who can access objects and what they can do.
+Bucket Policies: JSON-based policies to manage permissions at the bucket level.
+Versioning: Maintain multiple versions of an object within a bucket.
+Lifecycle Policies: Automate object transitions, archiving, and deletions.
+MFA Delete: Add an extra layer of security by requiring Multi-Factor Authentication (MFA) for object deletion.
+
+
+Bucket Lifecycle:
+Use Lifecycle policies to define rules for object transitions between storage classes and automatic deletion.
+For example, you can move objects to Glacier after a certain period and delete objects after a specific date.
+
+
+Bucket Versioning:
+Enable versioning to keep multiple versions of objects in the same bucket.
+Helps recover from accidental deletions or overwrites.
+
+
+MFA Delete:
+Requires Multi-Factor Authentication (MFA) to delete objects or enable versioning.
+Provides an added layer of security for critical data.
+
+
+Multipart Upload:
+Allows you to upload large objects in smaller parts (parts can be uploaded in parallel).
+Useful for resumable uploads and improved efficiency.
+
+
+Copying in S3:
+You can copy objects within the same bucket or across buckets.
+Copying objects is a non-destructive operation.
+Can be used for data replication, backups, or data movement.
+
+Amazon S3 Storage Classes 📦
+
+
+Standard:
+The default storage class, suitable for frequently accessed data.
+Provides high availability and durability.
+
+
+Intelligent-Tiering:
+Automatically moves objects between two access tiers based on changing access patterns.
+Cost-effective for unpredictable workloads.
+
+
+
+One Zone-IA (Infrequent Access):
+Stores data in a single Availability Zone.
+Lower cost than Standard IA, suitable for less critical data.
+
+
+Glacier:
+Low-cost archival storage with a retrieval delay.
+Suitable for long-term data retention.
+
+
+Glacier Deep Archive:
+Lowest cost archival storage, with longer retrieval times.
+Ideal for data with rare access requirements.
+S3 Object Storage Classes Configuration:
+Use S3 Lifecycle policies to transition objects between storage classes based on your data access patterns.
+
+
+Cross-Region Replication 🌐
+Replicate objects from one S3 bucket in one AWS region to another bucket in a different AWS region.
+Helps with data redundancy, compliance, and disaster recovery.
+
+
+Amazon EBS (Elastic Block Store) 💽
+Overview: Amazon EBS provides block-level storage volumes that can be attached to EC2 instances. It offers durability, snapshots, and different volume types.
+
+
+EBS Volume Types:
+General Purpose SSD (gp2): Suitable for a wide range of workloads.
+Provisioned IOPS SSD (io1): For high-performance applications.
+Throughput Optimized HDD (st1): Ideal for sequential, high-throughput workloads.
+Cold HDD (sc1): Low-cost option for less frequently accessed data.
+
+EBS Snapshots:
+Point-in-time backups of EBS volumes.
+Create consistent snapshots without impacting instance performance.
+Snapshots are incremental, only changes since the last snapshot are stored.
+
+
+EBS Encryption:
+Encrypts data at rest using AWS Key Management Service (KMS) or customer-managed keys.
+Supported for all EBS volume types, including root volumes.
+
+Root Volume Encryption:
+Encrypts the root volume of an EC2 instance for added security.
+
+
+EBS Encryption Key:
+Use AWS Key Management Service (KMS) to manage encryption keys.
+
+Sharing EBS Snapshots:
+Share EBS snapshots with other AWS accounts for collaboration or data migration.
